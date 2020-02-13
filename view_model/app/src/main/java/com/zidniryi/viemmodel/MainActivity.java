@@ -7,6 +7,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.View;
 import android.view.Menu;
@@ -15,23 +17,31 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int clickCount=0;
+//  Todo  Create instance for View Model
+    MainActivityViewModel mainActivityViewModel;
+
+
+
     private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        Connect To View Model
+        mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+
+
         textView=findViewById(R.id.tvCount);
-        textView.setText("Count is: "+clickCount);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        textView.setText("Count is: "+mainActivityViewModel.getInitialCount());
+        FloatingActionButton fab =  findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                textView.setText("Count is: "+getCurrentCount());
+                textView.setText("Count is: "+mainActivityViewModel.getInitialCount());
             }
         });
     }
@@ -43,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public  int getCurrentCount(){
 
-        clickCount+=1;
-        return clickCount;
-    }
 
 
 
