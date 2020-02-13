@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                textView.setText("Count is: "+mainActivityViewModel.getInitialCount());
+                textView.setText("Count is: "+mainActivityViewModel.getCurrentCount());
             }
         });
     }
