@@ -7,6 +7,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -35,13 +37,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         textView=findViewById(R.id.tvCount);
-        textView.setText("Count is: "+mainActivityViewModel.getInitialCount());
+
+        LiveData<Integer> count=mainActivityViewModel.getInitialCount();
+//        Observe data
+        count.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                textView.setText("Count is: "+integer);
+
+            }
+        });
         FloatingActionButton fab =  findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                textView.setText("Count is: "+mainActivityViewModel.getCurrentCount());
+                mainActivityViewModel.getCurrentCount();
             }
         });
     }
