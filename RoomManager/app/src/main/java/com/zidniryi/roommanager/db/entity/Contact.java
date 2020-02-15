@@ -1,5 +1,10 @@
 package com.zidniryi.roommanager.db.entity;
 
+
+import androidx.room.Entity;
+
+@Entity(tableName = "contact")
+
 public class Contact {
 
     public static final String TABLE_NAME = "contacts";
