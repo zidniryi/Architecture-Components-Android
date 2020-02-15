@@ -4,9 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.zidniryi.roommanager.adapter.ContactsAdapter;
-import com.zidniryi.roommanager.db.DatabaseHelper;
 import com.zidniryi.roommanager.db.entity.Contact;
 
 import androidx.appcompat.app.AlertDialog;

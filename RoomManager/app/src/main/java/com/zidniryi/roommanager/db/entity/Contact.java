@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "contact")
+@Entity(tableName = "contacts")
 
 public class Contact {
 
