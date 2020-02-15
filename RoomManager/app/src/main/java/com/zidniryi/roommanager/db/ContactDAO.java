@@ -1,10 +1,12 @@
-package com.zidniryi.roommanager.db.entity;
+package com.zidniryi.roommanager.db;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.zidniryi.roommanager.db.entity.Contact;
 
 import java.util.List;
 
