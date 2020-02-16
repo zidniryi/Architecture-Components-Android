@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(contactsAdapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,12 +100,14 @@ public class MainActivity extends AppCompatActivity {
         TextView contactTitle = view.findViewById(R.id.new_contact_title);
         final EditText newContact = view.findViewById(R.id.name);
         final EditText contactEmail = view.findViewById(R.id.email);
+        final  EditText contactPhone = view.findViewById(R.id.phone_number);
 
         contactTitle.setText(!isUpdate ? "Add New Contact" : "Edit Contact");
 
         if (isUpdate && contact != null) {
             newContact.setText(contact.getName());
             contactEmail.setText(contact.getEmail());
+            contactPhone.setText(contact.getPhone_number());
         }
 
         alertDialogBuilderUserInput
@@ -149,10 +151,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isUpdate && contact != null) {
 
-                    updateContact(newContact.getText().toString(), contactEmail.getText().toString(), position);
+                    updateContact(newContact.getText().toString(), contactEmail.getText().toString(), contactPhone.getText().toString(), position);
                 } else {
 
-                    createContact(newContact.getText().toString(), contactEmail.getText().toString());
+                    createContact(newContact.getText().toString(), contactEmail.getText().toString(), contactPhone.getText().toString());
                 }
             }
         });
@@ -166,12 +168,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void updateContact(String name, String email, int position) {
+    private void updateContact( String name, String email, String phone_number, int position) {
 
         Contact contact = contactArrayList.get(position);
 
         contact.setName(name);
         contact.setEmail(email);
+        contact.setPhone_number(phone_number);
 
 
 
@@ -184,9 +187,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void createContact(String name, String email) {
+    private void createContact(String name, String email, String phone_number) {
 
-        new CreateContactAsyncTask().execute(new Contact(0,name,email));
+        new CreateContactAsyncTask().execute(new Contact(0,name,email, phone_number));
 
     }
 
