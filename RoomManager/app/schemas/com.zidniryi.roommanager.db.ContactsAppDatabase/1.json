@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f597e6fc28bcabd161ab2426449f0c3f",
+    "identityHash": "16f010a17a53354629828fc9f7219db7",
     "entities": [
       {
         "tableName": "contacts",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`contact_name` TEXT, `contact_email` TEXT, `contact_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`contact_name` TEXT, `contact_email` TEXT, `contact_phone_number` TEXT, `contact_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
         "fields": [
           {
             "fieldPath": "name",
@@ -17,6 +17,12 @@
           {
             "fieldPath": "email",
             "columnName": "contact_email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone_number",
+            "columnName": "contact_phone_number",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -40,7 +46,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f597e6fc28bcabd161ab2426449f0c3f')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16f010a17a53354629828fc9f7219db7')"
     ]
   }
 }

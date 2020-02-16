@@ -24,12 +24,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
         public TextView name;
         public TextView emil;
+        public  TextView phone_number;
 
 
         public MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.name);
             emil = view.findViewById(R.id.email);
+            phone_number = view.findViewById(R.id.phone_number);
 
         }
     }
@@ -57,6 +59,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
         holder.name.setText(contact.getName());
         holder.emil.setText(contact.getEmail());
+        holder.phone_number.setText(contact.getPhone_number());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 

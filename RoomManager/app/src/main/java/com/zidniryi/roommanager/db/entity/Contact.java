@@ -22,6 +22,9 @@ public class Contact {
     @ColumnInfo(name = "contact_email")
     private String email;
 
+    @ColumnInfo(name = "contact_phone_number")
+    private String phone_number;
+
     @ColumnInfo(name = "contact_id")
     @PrimaryKey(autoGenerate = true)
     private long id;
@@ -31,13 +34,16 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(long id, String name, String email) {
+
+
+    public Contact(long id, String name, String email, String phone_number) {
 
         this.name = name;
         this.email = email;
         this.id = id;
+        this.phone_number = phone_number;
     }
-
+//Getter Setter
 
     public String getName() {
         return name;
@@ -62,6 +68,17 @@ public class Contact {
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+
+
 
 
 //    Create table
